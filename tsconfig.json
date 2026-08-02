@@ -29,9 +29,7 @@
     "posko-map-apps/**/*.ts",
     "posko-map-apps/**/*.tsx",
     "posko-map-apps/.expo/types/**/*.ts",
-    "posko-map-apps/expo-env.d.ts",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "posko-map-apps/expo-env.d.ts"
   ],
   "exclude": [
     "posko-map-apps/node_modules"
