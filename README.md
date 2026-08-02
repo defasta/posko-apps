@@ -1,56 +1,65 @@
-# Welcome to your Expo app 👋
+# Posko Finder App 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile application designed to dynamically map and manage "Posko" (Posts/Facilities). Built as a technical assignment for Transnovasi.
 
-## Get started
+## Features
+- **Interactive Map:** Powered by `react-native-maps`.
+- **Real-Time Geolocation:** Uses `expo-location` to request and track user coordinates.
+- **Dynamic UI States:** Smooth transitions between Start, List, Card Carousel, and Filter Options without heavy nested navigations.
+- **Filtering & Sorting:** Easily find facilities based on categories and alphabetical sorting.
+- **Clean Architecture:** Utilizes Zustand for robust global state management and centralized UI constants (Colors/Themes).
 
-1. Install dependencies
+## Tech Stack & Libraries Used
+- **Framework:** React Native (Expo)
+- **State Management:** Zustand
+- **Maps:** `react-native-maps`
+- **Geolocation:** `expo-location`
+- **Icons:** `@expo/vector-icons`
 
-   ```bash
-   npm install
-   ```
+## Prerequisites
+Before running the project, ensure you have the following installed:
+- Node.js (v16 or newer recommended)
+- Git
+- Expo Go app on your physical device (or Android Studio / Xcode for emulators)
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## How to Run the App Locally
 
-In the output, you'll find options to open the app in a
+**1. Clone the repository**
+    git clone https://github.com/defasta/posko-apps.git
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+**2. Install dependencies**
+    npm install
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+**3. Start the Expo development server**
+    npm start
 
-## Get a fresh project
+**4. Run on your device or emulator**
+- Press **a** in the terminal to open the app in an Android Emulator.
+- Press **i** in the terminal to open the app in an iOS Simulator.
+- Scan the QR code generated in the terminal using the **Expo Go** app on your physical device (ensure your device and computer are on the same Wi-Fi network).
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## Additional Information (Please Read)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 1. Location Permissions
+The app relies heavily on geolocation features. Upon the first launch, it will prompt you for location access. Please grant this permission for the application to function correctly and center the map on your current location.
 
-### Other setup steps
+### 2. Note on Google Maps API Key (APK Build)
+Google Maps SDK for Android requires a valid API Key linked to an active Google Cloud Billing Account (Credit Card). Since I am submitting this as a technical test and currently do not have a Visa/Credit Card attached to a billing account, I have provided a **dummy API key** inside the `app.json` file. 
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+**What does this mean for the APK?**
+To prevent the Standalone APK from instantly crashing upon rendering the MapView, the dummy key allows the app to run smoothly. However, the map tiles (the actual street visual) will appear blank or greyed out in the built `.apk`. 
+All UI components, bottom sheets, markers, and state logic remain fully functional. 
 
-## Learn more
+*If you wish to see the full map tiles, please run the app locally via **Expo Go** (which uses Expo's internal API key), or replace the dummy key in `app.json` with a valid Google Maps API Key and rebuild.*
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. State Management & Structure
+Instead of relying on deep navigation stacks, the app's UI is managed dynamically using Zustand to switch between core views (START, LIST, CARD, OPTION). This keeps the component tree clean and ensures smooth bottom-sheet and floating-card interactions.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📦 APK Release
+The production-ready `.apk` file (PoskoApp-Release.apk) has been compiled and is **attached to the submission email**. It can be installed directly on any Android device to review the functional behaviors, UI layout, and application flow.

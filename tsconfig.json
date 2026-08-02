@@ -1,7 +1,21 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "module": "preserve",
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "strict": true,
+    "target": "ESNext",
+    "baseUrl": "./posko-map-apps",
     "paths": {
       "@/*": [
         "./src/*"
@@ -12,9 +26,15 @@
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "posko-map-apps/**/*.ts",
+    "posko-map-apps/**/*.tsx",
+    "posko-map-apps/.expo/types/**/*.ts",
+    "posko-map-apps/expo-env.d.ts",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+  ],
+  "exclude": [
+    "posko-map-apps/node_modules"
+  ],
+  "extends": "expo/tsconfig.base"
 }

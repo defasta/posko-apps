@@ -1,0 +1,22 @@
+export const COLORS = {
+    primary: '#0D3B9F',
+    primaryLight: '#2F65D6',
+    primaryDark: '#002B7F',
+    white: '#ffffff',
+    black: '#000000',
+    background: '#f0f0f0',
+    surface: '#ffffff',
+    shadow: '#000000',
+    border: '#eeeeee',
+    borderDark: '#dddddd',
+    icon: '#888888',
+    iconDark: '#444444',
+    text: {
+      primary: '#333333',   
+      secondary: '#666666', 
+      address: '#777777',   
+      muted: '#999999',     
+      gray: '#555555',
+    },
+    backdrop: 'rgba(0, 0, 0, 0.4)',
+  };
